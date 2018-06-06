@@ -1,0 +1,68 @@
+<hr>
+<div class="container">
+  <table class="table table-hover">
+    <thead style="background-color: rgb(22, 20, 17);color: white;">
+        <th>p_id</th>
+        <th>p_name</th>
+        <th>p_price</th>
+        <th>p_image</th>
+        <th>p_status</th>
+        <th>action</th>
+      </thead>
+      <tr *ngFor="let item of arr">
+          <td>{{item.p_id}}</td>
+          <td>{{item.p_name}}</td>
+          <td>{{item.p_price}}</td>
+          <td><img src="{{item.p_img}}" alt="" style="height: 100px;width: 100px;"></td>
+          <td>{{item.p_s}}</td>
+          <button class="btn btn-warning" (click)="ondelete(item)">
+              <span class="glyphicon glyphicon-trash">
+
+              </span>
+          </button>&nbsp;|&nbsp;
+          <button class="btn btn-warning" (click)="onupdate(item)">
+            <span class="glyphicon glyphicon-pencil">
+
+            </span>
+        </button>
+      </tr>
+  </table>
+</div>
+<hr>
+
+<h1  style="text-align: center;background-color: rgb(22, 20, 17);color: white;">Add-data</h1>
+
+<div class="container">
+  <thead>
+  </thead>
+  <table class="table table-hover">
+    <tr>
+      <td>product_id
+      </td>
+      <td><input type="number" [(ngModel)]="pid" class="form-control"></td>
+    </tr>
+    <tr>
+        <td>product_name</td>
+        <td><input type="text" [(ngModel)]="pname" class="form-control"></td>
+      </tr>
+      <tr>
+          <td>product_price</td>
+          <td><input type="number"[(ngModel)]="pprice" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>product_img</td>
+            <td><input type="text" [(ngModel)]="pimg" class="form-control"></td>
+          </tr>
+          <tr>
+              <td>product_st</td>
+              <td><input type="text" [(ngModel)]="ps" class="form-control"></td>
+            </tr>
+            <td colspan="2">
+            <button class="btn btn-warning form-control " (click)="onadd()">ADD
+              <span class="glyphicon glyphicon-plus">
+
+              </span>
+            </button>
+          </td>
+  </table>
+</div>
