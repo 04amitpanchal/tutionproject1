@@ -5,7 +5,7 @@ export class stu
     public s_name:string,
     public s_class:string,
     public s_gender:string,
-    public s_st?:string
+    public s_status?:string
   ){
 
   }

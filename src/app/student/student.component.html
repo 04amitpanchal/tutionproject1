@@ -13,15 +13,15 @@
       <td>{{item.s_name}}</td>
       <td>{{item.s_class}}</td>
       <td>{{item.s_gender}}</td>
-      <td>{{item.s_st}}</td>
+      <td>{{item.s_status}}</td>
       <td>
         <button class="btn btn-warning" (click)="ondelete(item)" style="background-color: black;">
           <span class="glyphicon glyphicon-trash">
 
           </span>
         </button>&nbsp;|&nbsp;
-        <button class="btn btn-warning" style="background-color: black;">
-            <span class="glyphicon glyphicon-edit" (click)="onupdate(item)">
+        <button class="btn btn-warning" style="background-color: black;" (click)="onupdate(item)">
+            <span class="glyphicon glyphicon-edit">
 
             </span>
           </button>

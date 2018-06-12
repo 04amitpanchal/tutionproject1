@@ -6,17 +6,24 @@ import { ArrComponent } from './arr/arr.component';
 import { StudentComponent } from './student/student.component';
 import { WebComponent } from './web/web.component';
 import { Practice1Component } from './practice1/practice1.component';
+import { TaskComponent } from './task/task.component';
+import { HttpClientModule } from "@angular/common/http";
+import { EmpComponent } from './emp/emp.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     ArrComponent,
     StudentComponent,
     WebComponent,
-    Practice1Component
+    Practice1Component,
+    TaskComponent,
+    EmpComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

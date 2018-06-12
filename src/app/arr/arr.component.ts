@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { pro } from "./productclass";
+import { ProductService } from "../product.service";
 @Component({
   selector: 'app-arr',
   templateUrl: './arr.component.html',
@@ -7,8 +8,8 @@ import { pro } from "./productclass";
 })
 export class ArrComponent implements OnInit {
 arr:pro[]=[
-  new pro(1,'phone',23000,'../../assets/img/ap1.jpg','yes'),
-  new pro(2,'cloths',3400,'../../assets/img/ap1.jpg','no')
+  //  new pro(1,'phone',23000,'../../assets/img/ap1.jpg','yes'),
+  // new pro(2,'cloths',3400,'../../assets/img/ap1.jpg','no')
 
 ];
 pid:number;
@@ -16,17 +17,38 @@ pname:string;
 pprice:number;
 pimg:string;
 ps:string;
-  constructor() { }
+  constructor(private _xyz:ProductService) { }
 
   ngOnInit() {
+  this._xyz.getalldata().subscribe(
+  (data:pro[])=>{
+    console.log(data);
+    this.arr=data;
+
   }
-  onadd()
+);
+  }
+  onadd(item:pro)
   {
-    this.arr.push(new pro(this.pid,this.pname,this.pprice,this.pimg,this.ps));
+    this._xyz.addproduct(new pro(this.pid,this.pname,this.pprice,this.pimg,this.ps)).subscribe(
+      (data:any)=>
+      {
+          console.log(data);
+          this.arr.push(new pro(this.pid,this.pname,this.pprice,this.pimg,this.ps));
+      }
+    );
+
   }
-ondelete(x)
+ondelete(item:pro)
 {
-this.arr.splice(this.arr.indexOf(x),1);
+    this._xyz.deleteproduct(item).subscribe(
+      (data:any)=>
+      {
+        console.log();
+        this.arr.splice(this.arr.indexOf(item),1);
+      }
+    );
+
 }
 onupdate(x)
 {

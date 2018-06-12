@@ -1,0 +1,67 @@
+<div class="container" class="col-md-12">
+  <table class="table table-hover" style="background-color: orange;">
+    <thead style="background-color: black;">
+      <th style="color: orange;">e_id</th>
+      <th style="color: orange;">e_name</th>
+      <th style="color: orange;">e_des</th>
+      <th style="color: orange;">e_status</th>
+      <th style="color: orange;">Action</th>
+    </thead>
+    <tr *ngFor="let item of arr">
+      <td>{{item.e_id}}</td>
+      <td>{{item.e_name}}</td>
+      <td>{{item.e_des}}</td>
+      <td>{{item.e_status}}</td>
+      <td>
+        <button class="btn btn-warning" (click)="ondelete(item)">
+          <span class="glyphicon glyphicon-trash">
+
+          </span>
+        </button>
+        &nbsp;|&nbsp;
+          <button class="btn btn-warning" (click)="onupdate(item)">
+          <span class="glyphicon glyphicon-edit">
+
+          </span>
+        </button>
+
+      </td>
+
+
+
+    </tr>
+  </table>
+</div>
+
+<div class="container-fluid">
+  <table class="table table-hover" style="background-color: orange;">
+      <th colspan="2" style="text-align: center;background-color: black;color: orange">
+        Add-Data
+      </th>
+      <tr>
+        <td>e_id</td>
+        <td><input type="number" class="form-control" [(ngModel)]='eid'></td>
+      </tr>
+      <tr>
+        <td>e_name</td>
+        <td><input type="text" class="form-control" [(ngModel)]='ename'> </td>
+      </tr>
+      <tr>
+      <td>e_des</td>
+        <td><input type="text" class="form-control" [(ngModel)]='edes'></td>
+      </tr>
+      <tr>
+      <td>e_status</td>
+        <td><input type="text" class="form-control" [(ngModel)]='estatus'></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)="onadd()" class="btn  form-control" style="background-color:black">
+            <span class="glyphicon glyphicon-plus" style="color:white">
+
+            </span>
+          </button>
+        </td>
+      </tr>
+  </table>
+</div>

@@ -1,0 +1,59 @@
+<div class="container" class="col-md-12">
+
+    <table class="table table-hover" style="background-color: orange;">
+    <thead>
+      <th style="background-color: black;color: orange;">t_id</th>
+      <th style="background-color: black;color: orange;">t_title</th>
+      <th style="background-color: black;color: orange;"> t_status</th>
+      <th style="background-color: black;color: orange;">Action</th>
+    </thead>
+    <tr *ngFor="let item of arr">
+      <td>{{item.Id}}</td>
+      <td>{{item.Title}}</td>
+      <td>{{item.Status}}</td>
+      <td>
+        <button class="btn btn-warning" (click)='deletetask(item)'>
+          <span class="glyphicon glyphicon-trash">
+
+          </span>
+        </button>&nbsp;|&nbsp;
+        <button class="btn btn-warning" (click)="onupdate(item);">
+          <span class="glyphicon glyphicon-edit">
+
+          </span>
+        </button>
+      </td>
+    </tr>
+  </table>
+
+</div>
+<hr>
+<hr>
+<div class="container" class="col-md-12">
+  <table class="table table-hover" style="background-color: orange;">
+      <thead>
+        <th style="background-color: black;color: orange;" colspan="3">
+        Add-data
+      </th>
+      </thead>
+      <tr>
+        <td>t_id</td><td><input type="number" class="form-control" [(ngModel)]='t_id'></td>
+      </tr>
+      <tr>
+        <td>t_title</td><td><input type="text" class="form-control" [(ngModel)]='t_title'></td>
+      </tr>
+      <tr>
+        <td>t_status</td><td><input type="text" class="form-control" [(ngModel)]='t_status'></td>
+     </tr>
+     <tr>
+      <td colspan="3" >
+        <button class="btn  form-control" (click)="onadd()" style="background-color: black;">
+          <span class="glyphicon glyphicon-plus" style="color: orange">
+
+          </span>
+        </button>
+      </td>
+
+     </tr>
+  </table>
+</div>
